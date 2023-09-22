@@ -1,0 +1,13 @@
+---
+:id: 150755671
+:submitters:
+- :name: Mitchell Davis
+  :email: mitdavis@ucdavis.edu
+- :name: Geoffrey Mohn
+  :email: gmohn@ucdavis.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2022-11-24 07:26:25.214678000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2022-11-23 23:26:25.214678000 Z
+:status: processed

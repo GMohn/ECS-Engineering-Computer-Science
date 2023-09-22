@@ -1,0 +1,12 @@
+---
+:id: 100041569
+:submitters:
+- :name: Geoffrey Mohn
+  :email: gmohn@ucdavis.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2021-11-13 03:51:17.902255000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2021-11-12 19:51:17.902255000 Z
+:status: processed
+:score: 10.0

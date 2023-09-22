@@ -1,0 +1,13 @@
+---
+:id: 140861179
+:submitters:
+- :name: Harrison Nguyen
+  :email: hhanguyen@ucdavis.edu
+- :name: Geoffrey Mohn
+  :email: gmohn@ucdavis.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2022-10-14 07:17:41.346816000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2022-10-14 00:17:41.346816000 Z
+:status: processed

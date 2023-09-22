@@ -1,0 +1,14 @@
+---
+:id: 112410180
+:submitters:
+- :name: Jaewoo Lee
+  :email: jwplee@ucdavis.edu
+- :name: Geoffrey Mohn
+  :email: gmohn@ucdavis.edu
+:created_at: !ruby/object:ActiveSupport::TimeWithZone
+  utc: 2022-02-19 02:04:52.738002000 Z
+  zone: !ruby/object:ActiveSupport::TimeZone
+    name: America/Los_Angeles
+  time: 2022-02-18 18:04:52.738002000 Z
+:status: processed
+:score: 100.0
