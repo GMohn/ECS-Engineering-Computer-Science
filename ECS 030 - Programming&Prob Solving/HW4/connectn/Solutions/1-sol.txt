@@ -1,0 +1,2 @@
+Too many arguments entered
+Usage connectn.out num_rows num_columns number_of_pieces_in_a_row_needed_to_win

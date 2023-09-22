@@ -1,0 +1,37 @@
+2 * * * 
+1 * * * 
+0 * * * 
+  0 1 2 
+Enter a column between 0 and 2 to play in: Enter a column between 0 and 2 to play in: Enter a column between 0 and 2 to play in: Enter a column between 0 and 2 to play in: Enter a column between 0 and 2 to play in: 2 * * * 
+1 * * * 
+0 X * * 
+  0 1 2 
+Enter a column between 0 and 2 to play in: 2 * * * 
+1 O * * 
+0 X * * 
+  0 1 2 
+Enter a column between 0 and 2 to play in: 2 X * * 
+1 O * * 
+0 X * * 
+  0 1 2 
+Enter a column between 0 and 2 to play in: Enter a column between 0 and 2 to play in: 2 X * * 
+1 O * * 
+0 X * O 
+  0 1 2 
+Enter a column between 0 and 2 to play in: 2 X * * 
+1 O * * 
+0 X X O 
+  0 1 2 
+Enter a column between 0 and 2 to play in: 2 X * * 
+1 O * O 
+0 X X O 
+  0 1 2 
+Enter a column between 0 and 2 to play in: 2 X * * 
+1 O X O 
+0 X X O 
+  0 1 2 
+Enter a column between 0 and 2 to play in: 2 X * O 
+1 O X O 
+0 X X O 
+  0 1 2 
+Player 2 Won!

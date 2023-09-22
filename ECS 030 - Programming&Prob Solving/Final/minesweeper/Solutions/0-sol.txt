@@ -1,0 +1,2 @@
+Not enough arguments. Usage:
+./mine_sweeper.out num_rows num_cols num_mines [seed])

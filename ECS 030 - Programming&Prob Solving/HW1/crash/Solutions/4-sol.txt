@@ -1,0 +1,1 @@
+Please enter the starting position of train 1: Please enter the speed of train 1: Please enter the starting position of train 2: Please enter the speed of train 2: The two trains will collide in 3.24 hours 4792.44 miles down the track.

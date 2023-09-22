@@ -1,0 +1,4 @@
+Given a quadratic equation of the form a*x^2 + b * x + c
+Please enter a: Please enter b: Please enter c: There are 2 real solutions
+Solution 1: -0.91
+Solution 2: -3.33

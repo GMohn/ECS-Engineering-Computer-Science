@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1462174887 source:c:\users\g\desktop\ecs 30 code\hw3\anagram\anagram\main.c
+	<stdio.h>
+	<string.h>
+	<ctype.h>
+

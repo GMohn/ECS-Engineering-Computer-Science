@@ -1,0 +1,1 @@
+Please enter the first fraction to be added: Please enter the second fraction to be added: 9/50 + 12/79 = 1311/3950

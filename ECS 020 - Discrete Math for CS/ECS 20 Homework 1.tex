@@ -1,0 +1,231 @@
+% 
+% file: ECS 20 Homework 1 
+% author: Geoffrey Mohn
+% student ID: 912568148
+% History: 
+%   Sep 26, 2016 - created
+%   Sep 28, 2016 - last revised 
+%
+% This is LaTeX template to get you started using LaTeX
+% for making problem-set solutions.
+%
+
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.5in}
+
+% Sample macros -- how you define new commands
+% My own set of frequently-used macros have grown to many hundreds of lines.
+% Here are some simple samples.
+
+\newcommand{\Adv}{{\mathbf{Adv}}}          %example macro 
+\newcommand{\getsr}{{\:\stackrel{{\scriptscriptstyle\hspace{0.2em}\$}}{\leftarrow}\:}}  % a more complex sample macro
+\newcommand{\Func}[1]{{\mathrm{Fun}[{#1}]}}       % These macros take one
+\newcommand{\Randd}[2]{{\mathrm{Rand}[{#1},{#2}]}} % and two arguments
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\bf ECS 20 Homework 1\\[2ex] 
+	\rm\normalsize ECS 20 --- Fall 2016}
+\date{\today}
+\author{\bf Geoffrey Mohn\ ID: 912568148}
+
+\begin{document}
+	\maketitle
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 1} 
+	{\underline{A ball and a bat cost \$11.10 (total). The bat costs \$10.0 more than the ball. How much does the ball cost?}}\\*\\
+
+	A ball and bat costs \$11.10
+	
+	\begin{eqnarray*}
+	bat + ball &=& \$11.10\\
+	bat &=& \$10 + ball\\
+	ball &=& \$0.55	\\
+	bat &=& \$10.55\\
+	\end{eqnarray*}
+	
+	\textbf{The ball would cost \$0.55} so that the bat can cost \$10.55 and add up to \$11.10
+	\section*{Problem 2}
+	\begin{itemize}
+	
+	\item [] a)
+	{\underline{The sum of any three consecutive odd numbers is always a multiple of 3.}}\\*\\
+	
+	Let $x$ be any odd number
+	\begin{eqnarray*}
+	&=& (x)+(x+2)+(x+4) \\ 
+	&=& 3x-6\\
+	&=& 3(x-2) \\
+	\end{eqnarray*}
+	$x-2$ will always be an integer. \textbf{The integer $x-2$ will always be multiplied by 3, therefore it will always a multiple of 3.}
+	\newpage
+	\item [] b)
+	{\underline{The sum of any five consecutive even numbers is always a multiple of 10.}}\\*\\
+	
+	Let $x$ be any even number.
+	
+	\begin{eqnarray*}
+	&=& (x)+(x+2)+(x+4)+(x+6)+(x+8)\\
+	&=& 5x+20\\
+	\end{eqnarray*}\\
+	$x$ will always be an even number. \textbf{Any even number multiplied by 5 will be divisible by 10.}
+	
+	\item [] c)	
+	{\underline{Prove that if you add the squares of three consecutive integer numbers and then subtract two, you always get a multiple of 3.}}\\*\\
+	
+	Let$x$ be any integer number.
+	
+	\begin{eqnarray*}
+	&=& x^{2}+(x+1)^2+(x+2)^2\\
+	&=& x^2+x^2+2x+1+x^2+4x+4 \\
+	&=& 3x^2+6x+5\\
+	\end{eqnarray*}
+	
+	now subtract 2 and see if it is a multiple of 3
+	
+	\begin{eqnarray*}
+	F-2 &=& 3x^2+6x+5\\
+	&=& 3x^2+6x+3\\
+	&=& 3(x^2+2x+1)\\
+	\end{eqnarray*}
+	
+	$x$ is any integer. \textbf{the equation 3($x^2$+2$x$+1) is always always a value multiplied by 3, thus is always a multiple of 3.}
+	
+	\end{itemize}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	\section*{Problem 3} 
+	
+	{\underline{Roger is an amateur magician. In one of his tricks he invites people in the audience to think of a number (integer).}} He then asks them to carry out the following simple instructions:
+	\begin{eqnarray*}
+		&& triple \ your \ number \\
+		then && add \ 5 \\
+		then && multiply \ the \ number \ you \ now \ have \ by \ itself \\
+		then && subtract \ 25 \\
+		then && divide \ by\ 3 \\
+		then && divide \ by \ your \ original \ number\\
+	\end{eqnarray*}
+	
+	let $x$ be the initial number and go through the steps
+	
+	\begin{eqnarray*}
+	&=& x*3\\
+	&=& 3x+5\\
+	&=& (3x+5)^2\\
+	&=& (3x+5)^2-25\\
+	&=& ((3x+5)^2-25)/3\\
+	&=& (9x^2+30x)/3\\
+	&=& (3x^2+10x)/x\\
+	&=& 3x+10
+	\end{eqnarray*}
+	
+	\textbf{The magician can work backwards with the final number by plugging in (final number - 10)/3 to get the initial number.}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 4} 
+	
+	{\underline{Prove the following identities, where p, q, x, m, and n are real numbers:}}
+	\begin{itemize}
+
+	\item [] a)
+	{\underline{$8(p-q)+3(p+q)=2(p+2q)+9(p-q)$}}\\*\\
+	 
+	 Let $p$ and $q$ be real numbers.
+	 Let left hand side (LHS) be 8($p$-$q$)+3($p$+$q$).
+	 	\begin{eqnarray*}
+	 	8(p-q)+3(p+q)&=&\\
+	 	8p-8q+3p+3q&=&\\
+	 	11-5q&=&\\
+	 	\end{eqnarray*}
+	 	\newpage
+	 	Then let right hand side (RHS) be 2($p$+2$q$)+9($p$-$q$)
+	 	
+	 	\begin{eqnarray*}
+	 	&=& 2(p+2q)+9(p-q)\\
+	 	&=& 2p+4q+9p-9q\\
+	 	&=& 11p-5q\\
+	 	\end{eqnarray*}
+	 	
+	 	{\textbf{LHS = RHS so the proposition is true.}}\\*\\
+	 	
+	 \item[] b)
+	 {\underline{$x(m+n)+y(n-m)=m(x-y)+n(x+y)$}}\\*\\
+	 
+	 Let x,m, and n be real numbers
+	 Let LHS be $x$($m$+$n$)+$y$($n$-$m$)
+	 
+	 \begin{eqnarray*}
+	 x(m+n)+y(n-m)&=&\\
+	 xm+xn+yn-ym&=&\\
+	 \end{eqnarray*}
+	
+	let RHS be $m$($x$-$y$)+$n$($x$+$y$)
+	
+	\begin{eqnarray*}
+	&=& m(x-y)+n(x+y)\\
+	&=& xm+xn+yn-ym\\
+	\end{eqnarray*}
+	
+	\textbf{LHS $(xm+xn+yn-ym)$ = $(xm+xn+yn-ym)$ RHS}\\*\\
+
+	\item[] c)	
+	{\underline{$(x+2)(x+10)-(x-5)(x-4)=21x$}}\\*\\
+	Let x be a real number
+	Let LHS $(x+2)(x+10)-(x-5)(x-4)$
+	 	
+	\begin{eqnarray*}
+	(x+2)(x+10)-(x-5)(x-4)&=&\\
+	x^2+12x+20-(x^2-9x+20)&=&\\
+	x^2+12x+20-x^2+9x-20&=&\\
+	21x&=&
+	\end{eqnarray*}
+	
+	\textbf {LHS (21$x$) = (21$x$) RHS so the proposition is true.}
+	
+	\newpage
+	\item[] d)
+	\underline{$m^4$-1=($m^2$+1)($m^2$-1)}
+
+	Let m be a real number
+	let LHS $m^4$-1
+	
+	\begin{eqnarray*}
+	&=& m^4-1\\
+	&=& (m^2)^2-1^2\\
+	&=&(m^2-1)(m^2+1)
+	\end{eqnarray*}
+	\end{itemize}
+	\textbf {LHS ($m^2$-1)($m^2$+1) = ($m^2$+1)($m^2$-1) RHS so the proposition is true for all m.}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Extra credit (Google problem)} 
+	Four persons need to cross a bridge to get back to their camp at night. Unfortunately, they only have one flashlight and it only has enough light left for seventeen minutes. The bridge is too dangerous to cross without a flashlight, and it is strong enough to support only two persons at any given time. The flashlight cannot be thrown from one side of the bridge to the other. Each of the campers walks at a different speed. One can cross the bridge in 1 minute, another in 2 minutes, the third in 5 minutes, and the last one takes 10 minutes to cross. \underline{Tell these people how they can make it across in 17 minutes.}\\*\\
+	
+	Let a,b,c,and d be the four people, crossing the bridge at times of 1,2,5, and 10 minutes respectively 
+
+	In order to save the most time, the two slowest people should go together so they do not slow down the persons a and b (1 min, 2 min). Once they cross, one has to bring the flashlight back so we want a person from a and b to be on a side so they can run it from each side. 
+ 
+
+	\begin{eqnarray*}
+	a+b &=& 2 minutes total\\
+	a  &=& 3 minutes total\\
+	c+d &=& 13 minutes total\\
+	b &=& 15 minutes total\\
+	a+b &=& 17 minutes total
+	\end{eqnarray*}
+	
+	All four crossed in 17 minutes.
+	
+
+	
+\end{document}

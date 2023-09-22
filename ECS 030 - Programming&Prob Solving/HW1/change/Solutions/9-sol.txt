@@ -1,0 +1,6 @@
+Please enter the amount of money you wish to withdraw: You received 0 hundred(s)
+You received 1 fifty(s)
+You received 2 twenty(s)
+You received 0 ten(s)
+You received 0 five(s)
+You received 0 one(s)

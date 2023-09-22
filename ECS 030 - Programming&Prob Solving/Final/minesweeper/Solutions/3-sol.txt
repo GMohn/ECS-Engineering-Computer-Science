@@ -1,0 +1,42 @@
+Placing mine at 1, 1
+Placing mine at 0, 0
+There are 2 mines left
+1 # # 
+0 # # 
+  0 1 
+Enter row a row between 0-1 and a column between 0-1: Enter Action
+0. Reveal
+1. Question
+2. Mark
+3. Cancel
+Action: There are 2 mines left
+1 # # 
+0 # 2 
+  0 1 
+Enter row a row between 0-1 and a column between 0-1: Enter Action
+0. Reveal
+1. Question
+2. Mark
+3. Cancel
+Action: There are 2 mines left
+1 2 # 
+0 # 2 
+  0 1 
+Enter row a row between 0-1 and a column between 0-1: Enter Action
+0. Reveal
+1. Question
+2. Mark
+3. Cancel
+Action: There are 1 mines left
+1 2 # 
+0 ! 2 
+  0 1 
+Enter row a row between 0-1 and a column between 0-1: Enter Action
+0. Reveal
+1. Question
+2. Mark
+3. Cancel
+Action: 1 2 * 
+0 * 2 
+  0 1 
+You Won!!

@@ -1,0 +1,7 @@
+0 * * 
+  0 1 
+Enter a column between 0 and 1 to play in: 0 X * 
+  0 1 
+Enter a column between 0 and 1 to play in: 0 X O 
+  0 1 
+Tie game!

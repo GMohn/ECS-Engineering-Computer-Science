@@ -1,0 +1,3 @@
+Please enter how many levels of Pascal's Triangle you would like to see: 1 
+1 1 
+1 2 1 

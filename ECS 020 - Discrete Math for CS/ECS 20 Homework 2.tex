@@ -1,0 +1,337 @@
+% 
+% file: ECS 20 Homework 1 
+% author: Geoffrey Mohn
+% student ID: 912568148
+% History: 
+%   Oct 4, 2016 - created
+%   Oct 5, 2016 - last revised 
+%
+% This is LaTeX template to get you started using LaTeX
+% for making problem-set solutions.
+%
+
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.5in}
+
+% Sample macros -- how you define new commands
+% My own set of frequently-used macros have grown to many hundreds of lines.
+% Here are some simple samples.
+
+\newcommand{\Adv}{{\mathbf{Adv}}}          %example macro 
+\newcommand{\getsr}{{\:\stackrel{{\scriptscriptstyle\hspace{0.2em}\$}}{\leftarrow}\:}}  % a more complex sample macro
+\newcommand{\Func}[1]{{\mathrm{Fun}[{#1}]}}       % These macros take one
+\newcommand{\Randd}[2]{{\mathrm{Rand}[{#1},{#2}]}} % and two arguments
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\bf ECS 20 Homework 2\\[2ex] 
+	\rm\normalsize ECS 20 --- Fall 2016}
+\date{\today}
+\author{\bf Geoffrey Mohn\ ID: 912568148}
+
+\begin{document}
+	\maketitle
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 1} 
+	{\underline{Construct a truth table for each of these compound propositions:}}\\*\\
+
+	\begin{itemize}
+		\item [] a) 
+	p $\wedge$ q $\rightarrow$ p $\vee$ q
+	
+	\begin{center}
+		\begin{tabular}{||c | c | c | c | c||} 
+			\hline
+			p & q & p $\wedge$ q & p $\vee$ q & p $\wedge$ q $\rightarrow$ p $\vee$ q \\ [0.5ex] 
+			\hline\hline
+			T & T & T & T & T \\ 
+			\hline
+			T & F & F & T & T\\
+			\hline
+			F & T & F & T & T\\
+			\hline
+			F & F & F & F & T\\
+			\hline
+			
+		\end{tabular}
+	\end{center}
+	
+		\item [] b)
+		(q $\rightarrow$ $\neg$p) $\leftrightarrow$ (p $\leftrightarrow$ q)
+		
+	\begin{center}
+		\begin{tabular}{||c | c | c | c | c | c||}
+			\hline
+			p & q & $\neg$p & (q $\rightarrow$ $\neg$p) & (p $\leftrightarrow$ q) & (q $\rightarrow$ $\neg$p) $\leftrightarrow$ (p $\leftrightarrow$ q)\\
+			[0.5ex]
+			\hline\hline
+			T & T & F & F & T & F\\
+			\hline
+			T & F & F & T & F & F\\
+			\hline
+			F & T & T & T & F & F\\
+			\hline
+			F & F & T & T & T & T\\
+			\hline
+		\end{tabular}
+	\end{center}
+		\item [] c)
+	(p $\leftrightarrow$ q) $\oplus$ (p$\leftrightarrow$ $\neg$q)
+	\end{itemize}
+		\begin{center}
+			\begin{tabular}{||c | c | c | c | c | c||}
+				\hline
+				p & q & $\neg$q & p $\leftrightarrow$ q & p $\leftrightarrow$ $\neg$q & (p $\leftrightarrow$ q) $\oplus$ (p $\leftrightarrow$ $\neg$q)\\
+				[0.5ex]
+				\hline\hline
+				T & T & F & T & F & T\\
+				\hline
+				T & F & T & F & T & T\\
+				\hline
+				F & T & F & F & T & T\\
+				\hline
+				F & F & T & T & F & T\\
+				\hline
+			\end{tabular}
+		\end{center}
+	
+	\section*{Problem 2}
+	{\underline{Construct a truth table for each of these compound propositions:}}\\*\\
+	\begin{itemize}
+	\item [] a)
+	(p $\oplus$ q) $\vee$ (p $\leftrightarrow$ $\neg$q)\\*\\
+		
+		\begin{center}
+			\begin{tabular}{||c | c | c | c | c | c||}
+				\hline
+				p & q & $\neg$q & p $\oplus$ q & p $\leftrightarrow$ $\neg$q & (p $\oplus$ q) $\vee$ (p $\leftrightarrow$ $\neg$q)\\
+				[0.5ex]
+				\hline\hline
+				T & T & F & F & F & F\\
+				\hline
+				T & F & T & T & T & T\\
+				\hline
+				F & T & F & T & T & T\\
+				\hline
+				F & F & T & F & F & F\\
+				\hline
+			\end{tabular}
+		\end{center}
+	\item [] b)\\*\\
+	(p $\oplus$ q) $\wedge$ (p $\oplus$ $\neg$q)
+	
+		\begin{center}
+			\begin{tabular}{||c c c c c c||}					\hline
+				p & q & $\neg$q & p $\oplus$ q & p $\oplus$ $\neg$q & (p $\oplus$ q) $\wedge$ (p $\oplus$ $\neg$q)\\
+				[0.5ex]
+				\hline\hline
+				T & T & F & F & T & F\\
+				\hline		
+				T & F & T & T & F & F\\
+				\hline
+				F & T & F & T & F & F\\
+				\hline
+				F & F & T & F & T & F\\
+				\hline			
+			\end{tabular}
+		\end{center}
+	
+
+	
+	\end{itemize}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	\section*{Problem 3} 
+	
+	A contestant in a TV game show is presented with three boxes, A, B, and C. He is told
+	that one of the boxes contains a prize, while the two others are empty. Each box has a
+	statement written on it:
+	Box A: The prize is in this box
+	Box B: The prize is not in box A
+	Box C: The prize is not in this box
+	The host of the show tells the contestant that only one of the statements is true. Can the
+	contestant find logically which box contains the prize? Justify your answer.\\*\\
+	
+	Box C.\\*\\
+	 If Box A is true and has the prize, then box C's statement is also true which breaks the fact that only one box is true.\\*\\
+	 If Box B is true then Box A and C have to be false then the prize is in Box C
+	 If Box C is true and doesn't have the prize, then only box A and B have the prize. While Box C is true, Box A and Box B must be false. Which leads to a paradox between A and B.\\*\\
+	  Box C is the prize because then Box A doesn't have the prize, Box B is the truth saying that A doesn't contain the prize and Box C is false meaning it does have the prize.
+	
+
+			
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 4} 
+	
+This exercise relate to the inhabitants of the island of knights and knaves created by
+Smullyan, where knights always tell the truth and knaves always lie. You encounter two
+people, A and B. Determine, if possible, what A and B are if they address you in the way
+described. If you cannot determine what these two people are, can you draw any
+conclusions?
+A says “The two of us are both knights”, and B says “A is a knave”.
+\\*\\
+B is a Knight and A is a knave. \\*\\
+A can't be a knight because then both A and B have to be  knights, but B is calling A a knave. \\*\\
+If B is a knave then A has to be a knight based on B's statement.\\*\\
+If B is a knight, then A is a knave and lying making the statements okay.
+
+\newpage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 5} 
+
+Use truth tables to verify the associative laws:
+\begin{itemize}
+	\item [] a)
+	(p $\vee$ q) $\vee$ r $\Leftrightarrow$ p $\vee$ (q $\vee$ r)\\
+	
+		\begin{center}
+			\begin{tabular}{||c | c | c | c | c | c | c||}					\hline
+				p & q & r & (p$\vee$q) & (q $\vee$ r) & (p $\vee$ q) $\vee$ r & p$\vee$(q $\vee$ r)\\	
+				\hline
+				T & T & T & T & T & T & T\\
+				\hline
+				T & T & F & T & T & T & T\\
+				\hline
+				T & F & T & T & T & T & T\\
+				\hline
+				T & F & F & T & F & T & T\\
+				\hline			
+				F & T & T & T & T & T & T\\
+				\hline
+				F & T & F & T & T & T & T\\
+				\hline	
+				F & F & T & F & T & T & T\\
+				\hline
+				F & F & F & F & F & F & F\\
+				\hline
+	
+				\end{tabular}
+			\end{center}
+			
+	\item [] b)
+	(p $\wedge$ q)$\wedge$r $\Leftrightarrow$ p $\wedge$(q $\wedge$ r)\\
+	
+\end{itemize}
+			\begin{center}
+				\begin{tabular}{||c | c | c | c | c | c | c||}					\hline
+					p & q & r & (p$\wedge$q) & (q $\wedge$ r) & (p $\wedge$ q) $\wedge$ r & p$\wedge$(q $\wedge$ r)\\	
+					\hline
+					T & T & T & T & T & T & T\\
+					\hline
+					T & T & F & T & F & F & F\\
+					\hline
+					T & F & T & F & F & F & F\\
+					\hline
+					T & F & F & F & F & F & F\\
+					\hline			
+					F & T & T & F & T & F & F\\
+					\hline
+					F & T & F & F & F & F & F\\
+					\hline	
+					F & F & T & F & F & F & F\\
+					\hline
+					F & F & F & F & F & F & F\\
+					\hline
+					
+				\end{tabular}
+			\end{center}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 6}
+	Show that p $\leftrightarrow$ q and (p $\wedge$ q)$\vee$($\neg$p $\wedge$ $\neg$q) are equivalent.
+	
+			\begin{center}
+				\begin{tabular}{||c | c | c | c | c | c | c | c||}					\hline
+					p & q & $\neg$p & $\neg$q & p $\wedge$ q & ($\neg$p $\wedge$ $\neg$q) & (p $\wedge$ q) $\vee$ ($\neg$p $\wedge$ $\neg$q)& p $\leftrightarrow$ q\\
+					[0.5ex]
+					\hline\hline
+					T & T & F & F & T & F & T & T\\
+					\hline		
+					T & F & F & T & F & F & F & F\\
+					\hline
+					F & T & T & F & F & F & F & F\\
+					\hline
+					F & F & T & T & F & T & T & T\\
+					\hline			
+				\end{tabular}
+			\end{center}
+			
+			p $\leftrightarrow$ q and (p $\wedge$ q)$\vee$($\neg$p $\wedge$ $\neg$q) have the same truth value and therefore logically equivalent.\\
+			\newpage
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 7}
+	Use either a truth table, or logical equivalences, to show the equivalence:\newline
+	($\neg$(p $\vee$ F) $\wedge$($\neg$ q $\wedge$ T)) $\vee$ p $\Leftrightarrow$ (q $\rightarrow$ p)
+	
+		
+		\begin{center}
+			\begin{tabular}{||c | c | c | c | c | c | c | c | c | c | c ||}					\hline
+				p & q & $\neg$p & $\neg$q & T & F & $\neg$(p $\vee$ F) & ($\neg$q $\wedge$ T) & $\neg$(p $\vee$ F) $\wedge$ ($\neg$q $\wedge$ T) & ($\neg$(p $\vee$ F) $\wedge$ ($\neg$q $\wedge$ T)) $\vee$ p & q $\rightarrow$ p\\
+				[0.5ex]
+				\hline\hline
+				T & T & F & F & T & F & F & F & F  & T & T\\
+				\hline		
+				T & F & F & T & T & F & F & T & F & T & T\\
+				\hline
+				F & T & T & F & T & F & T & F & F & F & F\\
+				\hline
+				F & F & T & T & T & F & T & F & T & T & T\\
+				\hline			
+			\end{tabular}
+		\end{center}
+	\newline
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 8}
+	Use two different methods to show the equivalence:
+	($\neg$(q $\rightarrow$ p))$\vee$ (p $\wedge$ q)$\Leftrightarrow$q\\*\\
+	
+
+	\begin{center}
+	LHS = ($\neg$(q $\rightarrow$ p))$\vee$(p$\wedge$q)\\*\\
+	 ($\neg$(p$\vee$ $\neg$q)$\vee$(p$\wedge$q) conditional statement\\*\\
+	 $\neg$($\neg$p$\wedge$($\neg$q))$\vee$(p$\wedge$q) be morgan's law \\*\\
+	 (p $\wedge$ q) $\vee$ (p $\wedge$ q) double negation \\*\\
+	 (p$\wedge$q) idempotent \\*\\
+	 q specialization\\*\\
+	 LHS q $\Leftrightarrow$ q RHS
+	\end{center}
+	
+				\begin{center}
+					\begin{tabular}{||c | c | c | c | c | c | c ||}					\hline
+						p & q & $\neg$p & $\neg$q & ($\neg$(q $\rightarrow$ p))& (p $\wedge$ q) & ($\neg$(q $\rightarrow$ p))$\vee$(p$\wedge$q)\\
+						[0.5ex]
+						\hline\hline
+						T & T & F & F & F & T & T \\
+						\hline		
+						T & F & F & T & F & F & F \\
+						\hline
+						F & T & T & F & T & F & T \\
+						\hline
+						F & F & T & T & F & F & F \\
+						\hline			
+					\end{tabular}
+				\newline
+					($\neg$(q $\rightarrow$ p))$\vee$(p$\wedge$q)has the same truth table values as q and therefore logically equivalent
+				\end{center}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Extra Credit}
+	We are back on the island of knights and knaves (see exercise 4 above). John and Bill are
+	residents.
+	John: if Bill is a knave, then I am a knight
+	Bill: we are different
+	Who is who?
+	\newline\newline
+	John and Bill are both knaves.\newline John's statement is false because if Bill is a knave, then John is also a knave. Bill's statement is false because if they are both knaves then they are not different. Both of their statements are false and therefore they are both knaves.
+\end{document}

@@ -1,0 +1,22 @@
+Placing mine at 0, 1
+There are 1 mines left
+0 # # 
+  0 1 
+Enter row a row between 0-0 and a column between 0-1: Enter Action
+0. Reveal
+1. Question
+2. Mark
+3. Cancel
+Action: Enter row a row between 0-0 and a column between 0-1: Enter Action
+0. Reveal
+1. Question
+2. Mark
+3. Cancel
+Action: Enter row a row between 0-0 and a column between 0-1: Enter Action
+0. Reveal
+1. Question
+2. Mark
+3. Cancel
+Action: 0 1 * 
+  0 1 
+You Lost :(

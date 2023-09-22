@@ -1,0 +1,2 @@
+Enter the first coordinate in the form x y z: Enter the second coordinate in the form x y z: Enter the third coordinate in the form x y z: Enter the fourth coordinate in the form x y z: Enter the fifth coordinate in the form x y z: Enter the sixth coordinate in the form x y z: Enter the seventh coordinate in the form x y z: Enter the eighth coordinate in the form x y z: The surface area of the prism is 2104.53
+The volume of the prism is 5722.34

@@ -1,0 +1,2 @@
+Given a quadratic equation of the form a*x^2 + b * x + c
+Please enter a: Please enter b: Please enter c: There are no real solutions

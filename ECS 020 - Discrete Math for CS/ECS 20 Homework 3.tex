@@ -1,0 +1,423 @@
+% 
+% file: ECS 20 Homework 3 
+% author: Geoffrey Mohn
+% student ID: 912568148
+% History: 
+%   Oct 11, 2016 - created
+%   Oct 11, 2016 - last revised 
+%
+% This is LaTeX template to get you started using LaTeX
+% for making problem-set solutions.
+%
+
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\textheight}{9in}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{-0.5in}
+
+% Sample macros -- how you define new commands
+% My own set of frequently-used macros have grown to many hundreds of lines.
+% Here are some simple samples.
+
+\newcommand{\Adv}{{\mathbf{Adv}}}          %example macro 
+\newcommand{\getsr}{{\:\stackrel{{\scriptscriptstyle\hspace{0.2em}\$}}{\leftarrow}\:}}  % a more complex sample macro
+\newcommand{\Func}[1]{{\mathrm{Fun}[{#1}]}}       % These macros take one
+\newcommand{\Randd}[2]{{\mathrm{Rand}[{#1},{#2}]}} % and two arguments
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{\bf ECS 20 Homework 3\\[2ex] 
+	\rm\normalsize ECS 20 --- Fall 2016\\ Section A01}
+\date{\today}
+\author{\bf Geoffrey Mohn\ ID: 912568148}
+
+\begin{document}
+	\maketitle
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 1} 
+	{\underline{Show that this implication is a tautology, by using a table of truth: $[(p\lor q)\land(p\rightarrow r)\land(q\rightarrow r)] \rightarrow r$.}\\*\\
+		Let LHS be [(p \lor q) \land (p \rightarrow r) \land (q \rightarrow r)]
+
+\begin{table}[!hbt]
+	\begin{tabular}{|c|c|c||c|c|c|c||c|}
+		\hline
+		$p$ & $q$ & $r$ & $p \lor q$ & $p \rightarrow r$ & $q \rightarrow r$ & $ LHS \text{=} [(p \lor q) \land (p \rightarrow r) \land (q \rightarrow r)] $ & $LHS \rightarrow r$\\
+		\hline
+		T & T & T & T & T & T & T & T\\
+		T & T & F & T & F & F & F & T\\
+		T & F & T & T & T & T & T & T\\
+		T & F & F & T & F & T & F & T\\
+		F & T & T & T & T & T & T & T\\
+		F & T & F & T & T & F & F & T\\
+		F & F & T & F & T & T & F & T\\
+		F & F & F & F & T & T & F & T\\
+		\hline
+	\end{tabular}
+\end{table}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 2}
+	{\underline{Show that $[(p\lor q)\land(\lnot p\lor r)\rightarrow (q\lor r)$ is a tautology}}\\*\\
+	Let LHS be (p $\lor$  q) \land (\neg p \lor r)$
+	\begin{table}[!hbt]
+		\begin{tabular}{|c|c|c||c|c|c||c||c|}
+			\hline
+			$p$ & $q$ & $r$ & $p \lor q$ & $\neg p \lor r$ &  $LHS \text{=} (p \lor q) \land (\neg p \lor r)$ & $q \vee r$ & $LHS \rightarrow (q \lor r)$\\
+			\hline
+			T & T & T & T & T & T & T  & T\\
+			T & T & F & T & F & F & T & T\\
+			T & F & T & T & T & T & T & T\\
+			T & F & F & T & F & F & F & T\\
+			F & T & T & T & T & T & T & T\\
+			F & T & F & T & T & T & T & T\\
+			F & F & T & F & T & F & T & T\\
+			F & F & F & F & T & F & F & T\\
+			\hline
+		\end{tabular}
+	\end{table}
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\newpage
+	\section*{Problem 3} 
+	
+	\begin{itemize}
+	\item [a)]  {\underline {Let $x$ be a real number. Show that `` if $x^2$ is irrational, it follows that $x$ is irrational." }}\\*\\
+	
+	Let $p: x^2$ is irrational \newline let $q: x$ is irrational. \newline prove $p \rightarrow q$. Use indirect proof ($\lnot q \rightarrow \lnot p$.)
+	
+	$\lnot q$ = $x$ is rational. There exists an integer $a$ and a non-zero integer $b$ such that $x = \frac{a}{b}$. Then $x^2 = \frac{a^2}{b^2}$. Since $a^2$ and $b^2$ are integers, $x^2$ is a rational number. $\lnot p$ is true. Then $\lnot q \rightarrow \lnot p$ is true, thus $p \rightarrow q$ is true.
+	
+	\item [b)] {\underline{Based on question a), can you say that `` if $x$ is irrational, it follows that $x^2$ is irrational."}}\\*\\
+	
+	It is not a valid proposition. The statement in a) can be simplified as $p \rightarrow q$, while the second statement is $q \rightarrow p$ so they are not equivalent. 
+	
+	\end{itemize}
+	
+
+			
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 4} 
+	
+{\underline{Prove that a square of an integer ends with a 0, 1, 4, 5 6 or 9. (Hint: let $n = 10k+l$, where $l$ = 0, 1, ... ,9)}}\newline
+
+Let $n$ be an integer; there exists two integers $k$ and $l$ such that $n = 10k + l$ where $0 \leq l \leq 9$. We get:
+
+\begin{eqnarray*}
+n^{2} & = & (10k + l)^{2}\\
+& = & 100k + 20kl + l^{2}\\
+& = & k \times 100 + 2kl \times 10 + l^{2}
+\end{eqnarray*}
+
+$k \times 100$ and $2kl \times 10$ are multiples of 10. Therefore, $n^{2}$ ends as $l^{2}$. In the following table, we show that $l^{2}$ always end with a 0, 1, 4, 5, 6, or 9.
+
+\begin{table}[!hbt]
+\begin{tabular}{|c|c|c|}
+\hline
+l & $l^{2}$ & end\\
+\hline
+0 & 0 & 0\\
+1 & 1 & 1\\
+2 & 4 & 4\\
+3 & 9 & 9\\
+4 & 16 & 6\\
+5 & 25 & 5\\
+6 & 36 & 6\\
+7 & 49 & 9\\
+8 & 64 & 4\\
+9 & 81 & 1\\
+\hline
+\end{tabular}
+\end{table}
+
+\newpage
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 5} 
+
+\underline{Prove that if $n$ is a positive integer, then $n$ is even if and only if $5n+6$ is even.}
+	
+	
+	Let $p$ be the proposition ``$n$ is even'' \newline $q$ be the proposition ``$5n+6$ is even''.\newline
+	 show that $p \leftrightarrow q$, which is logically equivalent to show that $p \rightarrow q$ and $q \rightarrow p$.
+	
+	a) show $p \rightarrow q$:
+	
+	Assue $p$ is true, i.e. $n$ is even.
+	\noindent when $n$ is even, there exists an integer $k$ such that  $n = 2 k$.
+	
+	\begin{eqnarray*}
+	5 n + 6 & = & 5 (2 k) + 6\\
+	& = & 10 k + 6\\
+	& = & 2 \times (5 k + 3)
+	\end{eqnarray*}
+	
+	Since $5k+3$ is an integer, and $5 n + 6$ is a multiple of 2, it is always even.\newline
+	
+	b) show $q \rightarrow p$:
+	
+	Assume $q$ is true, i.e. $5n+6$ is even.
+	\noindent As $5 n + 6$ is even,  there exists an integer $k$ such that $5n + 6 = 2 k$.
+	
+	\begin{eqnarray*}
+	5 n & = & 2 k - 6\\
+	n & = & 2k - 6 - 4n\\
+	n & = & 2 \times (k - 3 - 2n) 
+	\end{eqnarray*}
+	
+	Since $k - 3 - 2n$ is an integer, $n$ is a multiple of 2: it is even.
+	
+	 $n$ is even $\leftrightarrow 5n+6$ is even.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 6}
+	\underline{Prove that either $3 \times 100^{450} + 15$ or $3 \times 100^{450} + 16$ is not a perfect square.}
+	
+	
+	Let $n=3\times 100^{450} + 15$. The two numbers are $n$ and $n+1$. 
+	
+	Prove through contradiction:  Assume that both $n$ and $n+1$ are perfect squares:
+	\begin{eqnarray*}
+	&&\exists k \in \mathbb{Z}, k^2 = n \\
+	&&\exists l \in \mathbb{Z}, l^2 = n + 1\\
+	\end{eqnarray*}
+	Then
+	\begin{eqnarray*}
+	l^2 &=& k^2 + 1 \\
+	(l-k)(l+k) &=& 1
+	\end{eqnarray*}
+	Since $l$ and $k$ are integers, there are only two cases:
+	\begin{itemize}
+	\item $l-k=1$ and $l+k=1$, i.e. $l=1$ and $k=0$. Then we would have $k^2=0$, $n=0$: contradiction
+	\item $l-k=-1$ and $l+k=-1$, i.e. $l=-1$ and $k=0$.  contradiction.
+	\end{itemize}
+	The proposition is true.
+		
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 7}
+	\underline{Prove or disprove that if $a$ and $b$ are rational numbers, then $a^b$ is also rational.}
+		
+		
+		It is not true. Let $a = 2$ and $b = 1/2$, both $a$ and $b$ are rational numbers. $a^{b}= \sqrt{2}$ which is irrational.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 8}
+	Prove that at least one of the real numbers $a_1, a_2, \ldots a_n$ is greater than or equal to the average of these numbers. What kind of proof did you use?\newline
+		
+		proof through contradiction. 
+		
+		Assume none of the real numbers $a_{1}$, $a_{2}$, ..., $a_{n}$ is greater than or equal to the average of these numbers, shown by E
+		
+		By definition
+		\begin{eqnarray*}
+		E & = & \frac{a_{1} + a_{2} + ... + a_{n}}{n}
+		\end{eqnarray*}
+		
+		Assume
+		
+		\begin{eqnarray*}
+		a_{1} & < & E\\
+		a_{2} & < & E\\
+	
+		a_{n} & < & E
+		\end{eqnarray*}
+		
+		take sum
+		
+		\begin{eqnarray*}
+		a_{1} + a_{2} + ... + a_{n} & < & n \ast E
+		\end{eqnarray*}
+		
+		put E the equivalence of E 
+		
+		\begin{eqnarray*}
+		a_{1} + a_{2} + ... + a_{n} & < & a_{1} + a_{2} + ... + a_{n}
+		\end{eqnarray*}
+		
+		a number cannot be smaller than itself so it is not possible.
+		If the contradiction assumption is wrong then the original proposition is correct.
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 9}
+	The proof below has been scrambled. Please put it back in the correct order
+	statements order: 3, 5, 4, 2, 1.
+		\\*\\
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Problem 10}
+	\underline{Prove that these four statements are equivalent: (i) $n^2$ is odd, (ii) $1-n$ is even, (iii) $n^3$ is odd, (iv) $n^2+1$ is even.}
+	
+	
+	given four propositions are:
+	\begin{itemize}
+	\item	$p$ : $n^2$ is odd
+	\item $q$ : $1-n$ is even
+	\item $r$ : $n^3$ is odd
+	\item $s$ : $n^2+1$ is even
+	\end{itemize}
+	then show that:
+	\begin{itemize}
+	\item $q \leftrightarrow p$
+	\item $q \leftrightarrow r$
+	\item $q \leftrightarrow s$
+	\end{itemize}
+	If these three are logical equivalent then the propositions are true.
+	%%%%%%
+	\begin{itemize}
+	\item [1)]  \textbf{Proof 1}: $1-n$ is even $\leftrightarrow$ $n^2$ is odd.
+	
+	two implications: (1) $1-n$ is even implies $n^2$ is odd\newline $n^2$ is odd implies that $1-n$ is even.
+	
+	\begin{itemize}
+	\item [a)] \textbf{Implication 1}: $q \rightarrow p$
+	
+	direct proof.
+	
+	Assume $q$ is true, i.e. $1-n$ is even.\newline There exists an integer $k$ such that $1-n = 2k$. 
+	$n = 1 - 2k$. Squares on each side:
+	\begin{eqnarray*}
+	n^2 = (1-2k)^2 = 4 k^2 - 2k +1 = 2(2k^2 -k) + 1
+	\end{eqnarray*}
+	 $n^2$ is odd, so $q \rightarrow p$.
+	
+	\item [b)] \textbf{Implication 2}: $p \rightarrow q$.
+	
+	indirect proof: $\neg q \rightarrow \neg p$.\newline
+	
+	 $\neg q$: $1-n$ is odd\newline
+	 $\neg p$: $n^2$ is even.\newline
+	
+	assume $1-n$ is odd. There exists an integer $k$ such that $1-n=2k+1$; $n=-2k$.
+	square: $n^2=4k^2$, so $n^2$ is even.
+	
+	 $\neg q \rightarrow \neg p$is true so $p \rightarrow q$ is true.
+	
+	
+	$q \rightarrow p$ and $p \rightarrow q$, then $p \Leftrightarrow q$. \newpage
+	
+	\item [2)] \textbf{Proof 2}: $1-n$ is even $\leftrightarrow$ $n^3$ is odd. $q\leftrightarrow $r
+	
+	two implications: (1) $1-n$ is even implies $n^2$ is odd and (2), $n^2$ is odd implies that $1-n$ is even.
+	
+	\begin{itemize}
+	\item [a)] \textbf{Implication 1}: $q \rightarrow r$
+	
+	direct proof.
+	
+	Assume $q$ is true, i.e. $1-n$ is even. There exists an integer $k$ such that $1-n = 2k$.
+	$n = 1 - 2k$. Take cubes
+	\begin{eqnarray*}
+	n^3 = (1-2k)^3 = -8k^3 +12k^2 -6k + 1 = 2(-4k^3+6k^2 -3k) +1
+	\end{eqnarray*}
+	$n^3$ is odd.  $q \rightarrow r$.
+	
+	\item [b)] \textbf{Implication 2}: $r \rightarrow q$.
+	
+	indirect proof,  $\neg q \rightarrow \neg r$.
+	\begin{itemize}
+	\item $\neg q$: $1-n$ is odd
+	\item $\neg p$: $n^3$ is even.
+	\end{itemize}
+	Assume $1-n$ is odd. There exists an integer $k$ such that $1-n=2k+1$; so $n=-2k$.
+	Tke cube: $n^3=8k^3=2(4k^3)$, thus $n^3$ is even.
+	
+	 $\neg q \rightarrow \neg r$; then $r \rightarrow q$ is true.
+	
+	\end{itemize}
+	$q \rightarrow r$ and $r \rightarrow q$, then r \Leftrightarrow q$.
+	
+	\item [1)]  \textbf{Proof 3}: $1-n$ is even $\leftrightarrow$ $n^2+1$ is even.
+	
+two implications: (1) $1-n$ is even implies $n^2+1$ is even and (2), $n^2+1$ is even implies that $1-n$ is even.
+	
+	
+	\begin{itemize}
+	\item [a)] \textbf{Implication 1}: $q \rightarrow s$
+	
+	direct proof.
+	
+	Assume $q$ is true, i.e. $1-n$ is even. There exists an integer $k$ such that $1-n = 2k$. Therefore
+	$n = 1 - 2k$. Squares on each side:
+	\begin{eqnarray*}
+	n^2 = (1-2k)^2 = 4 k^2 - 2k +1 = 2(2k^2 -k) + 1
+	\end{eqnarray*}
+	Therefore:
+	\begin{eqnarray*}
+	n^2+1 = 2(2k^2 -k) + 1 + 1 = 2 \ast (2k^2-k+1)
+	\end{eqnarray*}
+	$n^2+1$ is even. so $q \rightarrow s$.
+	
+	\item [b)] \textbf{Implication 2}: $s \rightarrow q$.
+	
+	indirect proof: $\neg q \rightarrow \neg s$.
+	\begin{itemize}
+	\item $\neg q$: $1-n$ is odd
+	\item $\neg s$: $n^2+1$ is odd.
+	\end{itemize}
+	Assume $1-n$ is odd. There exists an integer $k$ such that $1-n=2k+1$; therefore $n=-2k$.
+	Take square so that $n^2=4k^2$, then $n^2+1=4k^2+1$. $n^2+1$ is odd.
+	
+	 $\neg q \rightarrow \neg s$; is true so $s \rightarrow q$ is true .
+	
+	\end{itemize}
+	 $q \rightarrow s$ and $p \rightarrow s$, so $s \Leftrightarrow q$.
+	
+	\end{itemize}
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+	\section*{Extra Credit}
+Use Exercise 8 to show that if the first 10 strictly positive integers are placed around a circle, in any order, then there exist three integers in consecutive locations around the circle that have a sum greater than or equal to 17.
+
+
+Let $a_{1}$, $a_{2}$, ..., $a_{10}$ be an order of 10 positive integers from 1 to 10 being placed around a circle
+
+
+
+
+ the ten numbers $a$ relate first 10 positive integers to get:
+
+\begin{eqnarray}
+a_{1} + a_{2} + ... + a_{10} & = & 1 + 2 + ... + 10 = 55
+\end{eqnarray}
+
+ $a_{1}$, $a_{2}$, ..., $a_{10}$ are not order 1, 2, ..., 10 but the sum is 55
+
+
+
+
+
+ There are
+10 sums:
+\begin{eqnarray*}
+S_1 = a_1 + a_2 + a_3 \\
+S_2 = a_2 + a_3 + a_4 \\
+S_3 = a_3 + a_4 + a_5 \\
+S_4 = a_4 + a_5 + a_6 \\
+S_5 = a_5 + a_6 + a_7 \\
+S_6 = a_6 + a_7 + a_8 \\
+S_7 = a_7 + a_8 + a_9 \\
+S_8 = a_8 + a_9 + a_{10} \\
+S_9 = a_9 + a_{10} + a_1 \\
+S_{10} = a_{10} + a_1 + a_2 
+\end{eqnarray*}
+
+ compute the sum of these numbers:
+
+\begin{eqnarray*}
+S_{1} + S_{2} + ... + S_{10} & = & (a_{1} + a_{2} + a_{3}) + (a_{2} + a_{3} + a_{4}) + ... + (a_{10} + a_{1} + a_{2})\\
+& = & 3 \ast (a_{1} + a_{2} + ... + a_{10})\\
+& = & 3 \ast 55\\
+& = & 165
+\end{eqnarray*}
+
+The average of $S_{1}$, $S_{2}$, ..., $S_{10}$ is:
+
+\begin{eqnarray*}
+\overline{S} & = & \frac{S_{1} + S_{2} + ... + S_{10}}{10}\\
+& = & \frac{165}{10}\\
+& = & 16.5
+\end{eqnarray*}
+
+ at least one of $S_{1}$, $S_{2}$, ..., $S_{10}$ is greater than or equal to $\overline{S}$, $S_{1}$. It cannot be equal to 16.5. So at least one of $S_{1}$, $S_{2}$, ..., $S_{10}$ is greater to or equal to 17.
+\end{document}

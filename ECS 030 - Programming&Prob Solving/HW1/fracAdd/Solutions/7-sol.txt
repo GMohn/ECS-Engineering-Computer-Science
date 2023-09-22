@@ -1,0 +1,1 @@
+Please enter the first fraction to be added: Please enter the second fraction to be added: 625/2348 + 12578/58749 = 66251269/137942652

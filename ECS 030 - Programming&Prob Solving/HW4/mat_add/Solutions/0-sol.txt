@@ -1,0 +1,5 @@
+Please enter the number of rows: Please enter the number of columns: Enter Matrix A
+Enter Matrix B
+A + B = 
+126 -16 
+-547 -678 

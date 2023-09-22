@@ -1,0 +1,6 @@
+Please enter the number of rows: Please enter the number of columns: Enter Matrix A
+Enter Matrix B
+A + B = 
+106 326 388 -128 
+545 197 896 -771 
+-261 -328 285 667 
