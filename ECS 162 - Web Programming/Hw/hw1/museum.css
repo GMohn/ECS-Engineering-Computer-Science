@@ -1,0 +1,201 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,700&display=swap');
+body {
+    line-height: 1.2;
+    
+}
+
+.header_element{
+    font-family: 'Montserrat', sans-serif;
+    font-style: italic;
+    font-weight: 400;
+    display: flex;
+    font-size: 50px;
+    color: #022851;
+    line-height: 1.3;
+    justify-content: normal;
+    margin-right: 40px;
+}
+header{
+    padding: 25px;
+    margin: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+.container{
+    flex-direction: column;
+    justify-content: center;
+    align-content: flex-start;
+    align-items: center;
+    margin: 0px;
+
+}
+#logotext1,#logotext3{
+    line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    margin: 0px;
+}
+#logotext2{
+    line-height: 1.2;
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    color: #008278;
+    font-size: 16px;
+    margin: 0px;
+}
+#stripe{
+       height: 180px;
+       top: 112px;
+       position: absolute;
+       background-color:#008278;
+       opacity: .1;
+       z-index: -3;
+       width: 100%;
+}
+.captions{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+}
+
+main {
+    top: -6px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+}
+
+.body_img{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 20%;
+}
+.captions{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.bodytext{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 5px;
+    
+    width: 101%;
+}
+
+.tile{
+    width: 35%;
+    margin-top: -3px;
+    margin-bottom: 30px ;
+    margin-left: -50px;
+    margin-right: -85px;
+
+}
+
+.bodytext{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.captions{
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+}
+div.header_element{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 115px;
+}
+
+#museum_logo{
+    margin: 10px;
+    width: 100px;
+}
+
+#logo_area{
+    display: flex;
+    flex-direction: row;
+}
+@media only screen and (max-width: 1000px){
+    #stripe{
+        top: 0px;
+        height: 100px;
+    }
+    #museum_logo{
+        width: 75px;
+        margin: 15px;
+    }
+    .body{
+        line-height: 1;
+    }
+    .header_element{
+        font-size: 24px;
+        padding-top: 35px;
+        padding-bottom: -35px;
+        margin: 0px;
+        justify-content: center;
+        line-height: 0;
+        white-space: nowrap;
+        
+    }
+    header{
+        flex-direction: column;
+        margin-top: 50px;
+        padding: 0px;
+
+    }
+
+    .body_img{
+    width: 100%;
+    align-items: center;
+    vertical-align: text-bottom;
+    }
+
+    main{
+        flex-direction: column;
+    }
+
+    .bodytext{
+        font-size: 18px;
+        width: 100%;
+        align-items: center;
+        
+    }
+    .tile{
+        width: 65%;
+        margin: 0%;
+        
+    }
+    #tile2{
+        display: flex;
+        flex-direction: column-reverse;    }
+
+    .captions{
+        margin-top: 5px;
+    }
+
+
+}

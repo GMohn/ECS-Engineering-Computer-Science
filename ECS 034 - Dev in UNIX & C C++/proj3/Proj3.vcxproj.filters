@@ -15,21 +15,18 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Makefile" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\SixMensMorrisBoard.cpp">
+    <ClCompile Include="SixMensMorrisBoard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\testsixmensmorris.cpp">
+    <ClCompile Include="testsixmensmorris.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\SixMensMorrisBoard.h">
+    <ClInclude Include="SixMensMorrisBoard.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

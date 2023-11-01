@@ -1,0 +1,4 @@
+﻿  changeOfBase.cpp
+C:\Users\gmohn\Desktop\School\ECS 50\HW 1\Change_of_Base\Change_of_Base\changeOfBase.cpp(31,37): error C3867: 'std::basic_string<char,std::char_traits<char>,std::allocator<char>>::length': non-standard syntax; use '&' to create a pointer to member
+C:\Users\gmohn\Desktop\School\ECS 50\HW 1\Change_of_Base\Change_of_Base\changeOfBase.cpp(31,37): error C2446: '<': no conversion from 'unsigned __int64 (__cdecl std::basic_string<char,std::char_traits<char>,std::allocator<char>>::* )(void) noexcept const' to 'int'
+C:\Users\gmohn\Desktop\School\ECS 50\HW 1\Change_of_Base\Change_of_Base\changeOfBase.cpp(31,31): message : There is no context in which this conversion is possible

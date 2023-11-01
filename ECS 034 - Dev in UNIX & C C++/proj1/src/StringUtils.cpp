@@ -2,237 +2,359 @@
 #include <algorithm> 
 #include <cctype>
 #include <cstdio>
-#include<iostream>
+#include <iostream> 
 
 namespace StringUtils{
     
-std::string Slice(const std::string &str, ssize_t start, ssize_t end){
+std::string Slice(const std::string &str, ssize_t start, ssize_t end){ //https://stackoverflow.com/questions/27992264/c-equivalent-of-python-string-slice
     // Your code goes here
-    std::string TempStr = str; //store string  
-    if (start == end){ //if start of slice is the end of slice then return an empty string
-        return "";
-    }
+    std::string SlicedString = str;
+    //std::cout << "String length: "<< SlicedString.length()<< std::endl;
+    /*if (start > SlicedString.length()){ //https://stackoverflow.com/questions/3660901/a-warning-comparison-between-signed-and-unsigned-integer-expressions
+        std::cout << "Start val: "<< start<< std::endl;
+        return "";*/
+    
     if (start < 0){
-        start += str.length(); 
+        start += SlicedString.length();
     }
-    if (end <= 0 ){
-        end += str.length(); 
+    if (end <= 0){
+        end += SlicedString.length();
     }
-    ssize_t SliceLength = end - start; //measure length of slice
-    if (SliceLength < 1){ //if Slice is less than 1 then return empty string
+    int NewEnd = end - start;
+   // std::cout << " new end: " << NewEnd<< std::endl;
+    if (NewEnd < 0){
         return "";
-    }  
-    return TempStr.substr(start,SliceLength); //https://stackoverflow.com/questions/27992264/c-equivalent-of-python-string-slice
+    }
+    SlicedString.substr(start, NewEnd);
+    //std::cout << "Start: " << start << " End: " << NewEnd << std::endl;
+    //std::cout << "Sliced String: "<< SlicedString << std::endl;
 
+    return SlicedString.substr(start, NewEnd);
 }
 
 std::string Capitalize(const std::string &str){
     // Your code goes here
-    std::string TempStr, Lowercase;
-    for (char ch : str){  //https://stackoverflow.com/questions/9438209/for-every-character-in-string
-        TempStr += tolower(ch); //make all characters lowercase
+    std::string CapitalString;
+    for (char c: str){ //https://www.techiedelight.com/convert-string-lowercase-cpp/
+        CapitalString += tolower(c);
+        
     }
-    TempStr[0] = toupper(TempStr[0]); //first character capitalized
-    return TempStr;
+    CapitalString[0] = toupper(CapitalString[0]);
+    //std::cout <<"String: "<< CapitalString;
+    return CapitalString;
 }
 
 std::string Title(const std::string &str){
     // Your code goes here
-    std::string TempStr, LowerString;
-    bool isFirst = true;
-    char isPrev;
-    //thispointer.com/convert-first-letter-of-each-word-of-a-string-to-upper-case-in-c/
-    for (char ch : str){
-        LowerString += tolower(ch); //create two temp strings, one to change and store. make all characters lower case
+    /* String is "__HELLO123world!"
+    Expected output "__Hello123World!"
+
+
+    */
+    std::string TitleString;
+    int PrevIdx = 0, CurrIdx = 0;
+    for (char c: str){
+    	TitleString += tolower(c);
+    	//std::cout << "Print current idx: " <<CurrIdx;
+    	if(isalpha(TitleString[0])){
+    		TitleString[0] = toupper(TitleString[0]);
+    	}
+    	if (isalpha(TitleString[CurrIdx]) == 0){ //if not alphabetic
+    		PrevIdx = CurrIdx;
+    		CurrIdx++;
+    	}
+    	else{
+    		if (isalpha(TitleString[PrevIdx])){
+    			//previous char is alphabetic no need to capitalize
+    			PrevIdx = CurrIdx;
+    			CurrIdx++;
+    		}
+
+    		else{ //curridx of str is alpha and prev idx is not alpha
+    			TitleString[CurrIdx] = toupper(TitleString[CurrIdx]);
+    			PrevIdx = CurrIdx;
+    			CurrIdx++;
+
+
+    		}
+
+    	}
     }
-
-    for (char ch: LowerString){ // for lower string check if its a letter
-        if (isFirst){
-            isFirst = false;
-            isPrev = ch;
-            TempStr += toupper(ch);
-            continue;
-        }
-        if (!isalpha(isPrev) || ispunct(isPrev) || isPrev == ' '){
-            isPrev = ch;
-            TempStr += toupper(ch); //when letter not found, capitalize
-            continue;
-        }
-
-        TempStr += ch;
-        isPrev = ch;
-
-    } 
-      return TempStr;
+    	return TitleString;
 }
 
 std::string LStrip(const std::string &str){
     // Your code goes here
-    std::string TempStr;
-    bool Stripped = true;
-    for (char ch : str){
-        if (isblank(ch) && Stripped){
-        std::cout << "String is  if blank:" << TempStr << std::endl;    
-            continue;
-        }
-        else{ //build the string from the else statement
-            Stripped = false;
-            TempStr +=ch;
-            std::cout << "String is else:" << TempStr << std::endl;
-        }
+    /* "    Test String"
+
+
+    */
+    std::string EmptyString = "";
+    std::string LeftTrim = str;
+    int Idx = 0;
+    for (std::size_t x = 0, length = str.length(); x < length; ++x){ //https://stackoverflow.com/questions/5135291/is-using-string-length-in-loop-efficient
+    	if (LeftTrim[Idx] != ' '){
+    		break;
+    	}
+    	else{
+    		Idx ++;
+    	}
     }
-    std::cout << "String is :" << TempStr << std::endl; 
-    return TempStr;
+    LeftTrim = LeftTrim.substr(Idx,LeftTrim.length());
+    return LeftTrim;
 }
 
 std::string RStrip(const std::string &str){
     // Your code goes here
-    std::string TempStr = str; //copy string temporarily
-    int length = str.length() - 1;
-    for (int count = length; count >= 0 ; count--){
-        if(isblank(TempStr[count]) || TempStr[count] == '\n'){
-            TempStr.erase(count,1);
-        }
-        else{
-            break;
-        }
+    std::string RightTrim = str;
+    int Idx = 0;
+    for (int i = str.size() - 1; i >= 0; i--){ //www.techiedelight.com/loop-characters-string-backwards-cpp/
+    	if (RightTrim[Idx] != ' '){
+    		break;
+    	}
+    	else{
+    		Idx ++;
+    	}
     }
-        return TempStr;
+    RightTrim = RightTrim.substr(0,str.size()-Idx);
+    return RightTrim;
 }
 
 std::string Strip(const std::string &str){
     // Your code goes here
-    std::string TempStr;
-    TempStr = LStrip(str);
-    TempStr = RStrip(TempStr);
-    return TempStr;
+    std::string StrippedString = str;
+    StrippedString = LStrip(str);
+    //std::cout << "LStrip String: " << StrippedString;
+    StrippedString = RStrip(StrippedString);
+    //std::cout << "Both Stripped String: " << StrippedString;
+    return StrippedString;
 }
 
-std::string Center(const std::string &str, int width, char fill){ 
+std::string Center(const std::string &str, int width, char fill){
     // Your code goes here
-    std::string TempStr = Strip(str);
-    int LengthStr = TempStr.length() + 1;
-    if ((width - TempStr.length()) % 2){
-        TempStr += fill;
+    std::string CenteredString = str;
+    int Padding = width - str.length();
+    int LeftPadding = Padding/2;
+    int RightPadding = Padding - LeftPadding;
+    if (Padding <= 0){
+    	return str;
     }
-    for (int count = LengthStr; count < width; count +=2){
-        TempStr += fill;
-        TempStr = fill + TempStr;
-    }
-    std::cout << "Center String is :" << TempStr << std::endl; 
-
-    return TempStr;
+    else{
+    	CenteredString = std::string(LeftPadding, fill) + str; //stackoverflow.com/questions/166630/how-to-repeat-a-string-a-variable-number-of-times-in-c
+    	CenteredString = CenteredString + std::string(RightPadding, fill);
+    	}
+  
+    return CenteredString;
 }
 
-std::string LJust(const std::string &str, int width, char fill){ //stackoverflow.com/questions/17512825/align-text-to-center-in-string-c
+std::string LJust(const std::string &str, int width, char fill){
     // Your code goes here
-    std::string TempStr = Strip(str);
-    int LengthStr = TempStr.length();
-    for (int count = LengthStr; count < width; count++){
-        TempStr += fill;
-    }
-    return TempStr;
+    std::string LeftJust = str;
+    int Padding = width - str.length();
+    LeftJust = str + std::string(Padding, fill);
+    return LeftJust;
 }
 
 std::string RJust(const std::string &str, int width, char fill){
     // Your code goes here
-    std::string TempStr = Strip(str);
-    int LengthStr = TempStr.length();
-    for (int count = LengthStr; count < width; count++){
-        TempStr = fill + TempStr;
-    }
-    return TempStr;
+    std::string RightJust = str;
+    int Padding = width - str.length();
+    RightJust = std::string(Padding, fill) + str;
+    return RightJust;
 }
 
 std::string Replace(const std::string &str, const std::string &old, const std::string &rep){
     // Your code goes here
-    std::string TempStr = str;
-    size_t replace = str.find(old);
-    while (replace != std::string::npos){
-        TempStr.replace(replace, old.length(), rep);
-        replace = TempStr.find(old);
+    /*"aabbccaaabbbcccaaaa","aa","ee"), "eebbcceeabbbccceeee"
+    push all 
+    */
+    std::string ReplacedString = str;
+    size_t Idx = 0;
+    size_t RepLength = rep.length();
+    while (true){ //stackoverflow.com/questions/4643512/replace-substring-with-another-substring-c
+    	Idx = str.find(old, Idx);
+    	if (Idx == std::string::npos) break;
+    	ReplacedString.replace(Idx,RepLength, rep);
+    	Idx += RepLength;
+/*
+FIGURE OUT HOW THIS FUNCTION WORKS
+*/
     }
-    return TempStr;
+
+    return ReplacedString;
 }
 
 std::vector< std::string > Split(const std::string &str, const std::string &splt){
     // Your code goes here
-    std::vector<std::string> StringVec;
-    std::string TempStr = str;
-    if (splt.empty()){
-        TempStr = StringUtils::Replace(TempStr, "\n", " ");
-        TempStr = StringUtils::Replace(TempStr, "\t", " ");
-        TempStr = StringUtils::Replace(TempStr, "\r", " ");
-        TempStr = StringUtils::Replace(TempStr, "\b", " ");
-        int count = 0;
-        for (char &ch: TempStr){
-            if (ch == ' ' && *(&ch + 1) == ' '){
-                int LengthStr = 1;
-                while (*(&ch + LengthStr) == ' '){
-                    LengthStr++;
-                }
-                TempStr.erase(count, LengthStr - 1);
-            }
-            count++;
-        }
-        return StringUtils::Split(TempStr, " ");
-    }
-    else{
-        size_t div = str.find(splt), div2;
-        StringVec.push_back(Slice(TempStr, 0 , div));
-        while(true){
-            TempStr = &TempStr[div + 1];
-            div2 = TempStr.find(splt);
-            if (div2 != std::string::npos){
-                StringVec.push_back(Slice(TempStr, 0 , div2));
-                div = div2;
-            }
-            else{
-                StringVec.push_back(TempStr);
+	std::vector<std::string> SplitVec;
+	std::string FoundString;
+    std::string TempString = str;
+	size_t Idx = 0;
+	size_t PrevFound = 0;
+    if (splt == ""){
+        while (true){           
+            if (Idx >= str.length()){
                 break;
             }
+            else{
+                while (Idx < str.length() && !isspace(str[Idx])){ //when its not white space 
+                    FoundString += str[Idx];
+                    //std::cout << "Foundstring in splt: "<< FoundString<< std::endl;
+                    Idx++;
+                }
+            }
+            if (FoundString != ""){
+                SplitVec.push_back(FoundString);
+                FoundString = "";         
+                //std::cout << "Idx value in outside while loop: "<< Idx << std::endl;
+            }
+            Idx++;
+
         }
-        return StringVec;
+        return SplitVec;
+    }
+    else{
+        while (true){
+            size_t Found = str.find(splt,PrevFound);
+            //std::cout <<"found: " <<Found << std::endl;
+            if(Found == std::string::npos){
+                break;
+            }
+            if(PrevFound == Found){
+                SplitVec.push_back("");
+                PrevFound = Found + splt.length();
+            }
+            else{
+                FoundString = str.substr(PrevFound, Found-PrevFound);
+                //std::cout <<"FoundString: "<< FoundString <<" Prevfound: "<< PrevFound << std::endl;
+                SplitVec.push_back(FoundString);
+                PrevFound = Found + splt.length();
+            } 
+        }
     }
 
-    }
+	
+	SplitVec.push_back(Slice(str,PrevFound,str.length()));
+  	
+
+/*
+	std::string SplitString = str, TempStr;
+	size_t Idx = 0;
+	size_t SpltLen = splt.length();
+	for (std::size_t i = 0; i < str.length();i++){ //iterate through the string length
+		Idx = str.find(splt, Idx); //find the idex where the first occurence of splt occurs
+		if (Idx != std::string::npos){ //stackoverflow.com/questions/2340281/check-if-a-string-contains-a-string-in-c
+			
+			TempStr = SplitString.substr(Idx+1);
+			std::cout <<"Idx: "<< Idx <<" TempStr: "<<TempStr << std::endl;
+		}
+		else{
+			break;
+		}
+		Idx += SpltLen;
+		
+	}
+*/	
+    return SplitVec;
+}
 
 std::string Join(const std::string &str, const std::vector< std::string > &vect){
     // Your code goes here
-    std::string TempStr;
-    size_t count = 0;
-    for (auto cont : vect){
-        count++;
-        if(count >= vect.size())
-            TempStr += cont;
-        else
-            TempStr += cont + str;
+    std::string JoinString;
+    for (size_t i = 0; i < vect.size();i++){
+        //std::cout <<"i: " << i <<std::endl;
+        //std::cout <<"vec size: "<< vect.size()<< std::endl;
+        JoinString += vect[i];
+        if (i == vect.size() - 1){
+            break;
+        }
+        else{
+            JoinString += str;
+        }
+
+        //std::cout << "JoinString: " <<JoinString << std::endl;
     }
-    return TempStr;
+    return JoinString;
 }
 
 std::string ExpandTabs(const std::string &str, int tabsize){
     // Your code goes here
-    std::vector<std::string> Expanded = StringUtils::Split(str, "\t");
-    size_t count = 0;
-    for (auto &comp : Expanded){
-        count++;
-        if (count == Expanded.size()){
-            break;
-        }
-        if (int(comp.length()) >= tabsize){
-            comp = StringUtils::LJust(comp, tabsize * 2);
-        }
-        else
-            comp = StringUtils::LJust(comp, tabsize);
+    /* "H/tELLO"
+
+
+    */
+    std::string ExpandedString;
+    int TabLength;
+    /*if (tabsize == 0){
+    	ExpandedString = Replace(str,"\t");
+    	return ExpandedString;
+    }*/
+
+    for (size_t i = 0; i < str.length(); i++){
+    	if (str.at(i) != '\t'){
+    		ExpandedString += str.at(i);
+    	}
+    	else{
+    		if(tabsize == 0){
+    			continue;
+    		}
+    		TabLength = tabsize - (ExpandedString.length() % tabsize);
+    		for (int j = 0; j < TabLength; j++){
+    			ExpandedString += " ";
+    		}
+
+    	}
     }
 
-    return StringUtils::Join("", Expanded);
+    return ExpandedString;
 }
 
 int EditDistance(const std::string &left, const std::string &right, bool ignorecase){
     // Your code goes here
-    return 0;
+    const std::size_t LeftLen = left.length();
+    const std::size_t RightLen = right.length();
+    std::string LeftString;
+    std::string RightString;
+    if (ignorecase){
+        for (size_t i = 0; i < LeftLen; i++){
+            LeftString += tolower(left[i]);       
+        }
+        for (size_t j = 0; j < RightLen; j++){
+            RightString += tolower(right[j]);
+        }
+    }
+    else{
+        LeftString = left;
+        RightString = right;
+    }
+    int MinEditDist[LeftLen+1][RightLen+1];
+    /* When i is 0 so left or right is empty then dist is length of the other
+    cost is i when 0 right chars1
+    */
+    for (size_t i = 0; i <= LeftLen; i++){
+        MinEditDist[i][0] = i;
+    }
+    for(size_t j = 0; j <= RightLen; j++){
+        MinEditDist[0][j] = j;
+    }
+
+    for (size_t i = 1; i <= LeftLen; i++){
+        for(size_t j = 1; j <= RightLen; j++){
+            if (LeftString[i-1] == RightString[j-1]){
+                MinEditDist[i][j] = MinEditDist[i-1][j-1]; //diagonal of the table. characters are the same, so use prev result
+            }
+            else{ //characters are not the same
+                int InsertCost = MinEditDist[i][j-1];
+                int DeleteCost = MinEditDist[i-1][j];
+                int ReplaceCost = MinEditDist[i-1][j-1];
+                int MinCost = std::min(std::min(InsertCost,DeleteCost),ReplaceCost);
+                MinEditDist[i][j] = MinCost + 1; 
+            }
+        }
+    }
+
+
+    return MinEditDist[LeftLen][RightLen];
 }
 
 }

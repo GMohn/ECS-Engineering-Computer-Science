@@ -97,22 +97,13 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <ClCompile>
-      <WarningLevel>EnableAllWarnings</WarningLevel>
-      <AdditionalIncludeDirectories>C:\Users\gmohn\Documents\GitHub\ECS34\proj3\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-    </ClCompile>
-  </ItemDefinitionGroup>
   <ItemGroup>
-    <None Include="Makefile" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="SixMensMorrisBoard.cpp" />
+    <ClCompile Include="testsixmensmorris.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\SixMensMorrisBoard.cpp" />
-    <ClCompile Include="src\testsixmensmorris.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="include\SixMensMorrisBoard.h" />
+    <ClInclude Include="SixMensMorrisBoard.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

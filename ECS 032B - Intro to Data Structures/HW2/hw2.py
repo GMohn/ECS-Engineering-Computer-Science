@@ -24,40 +24,50 @@ class QueueFE:
 
 class Stack:
      def __init__(self):
-        self.head = None
+        ulist = UnorderedList()
+        print(ulist.head)
+        ulist.head = None
 
+
+        
 
      def isEmpty(self):
-        return True if self.head is None else False
+        ulist = UnorderedList()
+        return ulist.isEmpty()
 
 
 
      def push(self, item):
-        if self.head is None:
-            self.head = Node(item)
+        ulist = UnorderedList()
+        if ulist.head is None:
+            ulist.insert()
         else:
             new_node = Node(item)
-            new_node.next = self.head
-            self.head = new_node
+            new_node.next = ulist.head
+            ulist.head = new_node
+            ulist.insert()
 
 
      def pop(self):
-        if self.head is None:
+        ulist = UnorderedList()
+        if ulist.head is None:
             return None
         else:
-            popped = self.head.data
-            self.head = self.head.next
+            popped = ulist.head.data
+            ulist.head = ulist.head.next
             return popped
 
 
      def peek(self):
-        if self.head is None:
+        ulist = UnorderedList()
+        if ulist.head is None:
             return None
         else:
-            return self.head.data
+            return ulist.head.data
 
      def size(self):
-        current = self.head
+        ulist = UnorderedList()
+        current = ulist.head
         count = 0
         while current:
             count+= 1
@@ -72,6 +82,7 @@ class Queue:
         self.tail = None
 
     def isEmpty(self):
+        ulist = UnorderedList()
         return self.head == None
 
     def enqueue(self, item):
@@ -173,7 +184,8 @@ class Deque:
         while curr_node:
            # print(curr_node.data)
             curr_node = curr_node.next
-"""
+
+Stack()
 llist = Deque()
 llist.addFront("3")
 llist.addFront("2") 
@@ -184,7 +196,6 @@ llist.addRear("6")
 print("printing list ") 
 llist.print_list()
 print("removing Front ")
-llist.removeFront()
 llist.removeFront()
 llist.removeFront()
 llist.removeFront()
@@ -208,4 +219,3 @@ print("empty again?")
 print(llist.isEmpty())
 
 input('Press ENTER to exit')
-"""
