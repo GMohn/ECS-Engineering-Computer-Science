@@ -1,0 +1,99 @@
+﻿
+using UnityEngine;
+using UnityEngine.AI;
+
+public class MiniController : MonoBehaviour
+{
+    [SerializeField]
+    private NavMeshAgent agent;
+    [SerializeField]
+    private ColorBind colorBindings;
+    private ColorWatcher watcher;
+    private PublisherManager publisherManager;
+    private float throttle = .2f;
+    private float TimeSinceChecked;
+    private int groupID = 1;
+    private float existenceTime;
+    private float currLife = 0;
+    
+
+
+    
+    void Awake()
+    {
+        this.existenceTime = Random.Range(10,41);
+        this.publisherManager = GameObject.FindGameObjectWithTag("Script Home").GetComponent<PublisherManager>();
+        this.RandomizeBody();
+        this.groupID = Random.Range(1, 4);
+        this.publisherManager.SubscribeToGroup(groupID, OnMoveMessage);
+        switch(this.groupID)
+        {
+            case 1:
+                this.ChangeColor(this.colorBindings.GetGroup1Color());
+                //set up a watcher for Stage 1.1
+                watcher = new ColorWatcher(this.colorBindings.GetGroup1Color,this.ChangeColor);
+                break;
+            case 2:
+                this.ChangeColor(this.colorBindings.GetGroup2Color());
+                //set up a watcher for Stage 1.1
+                watcher = new ColorWatcher(this.colorBindings.GetGroup2Color,this.ChangeColor);
+                break;
+            case 3:
+                this.ChangeColor(this.colorBindings.GetGroup3Color());
+                //set up a watcher for Stage 1.1
+                watcher = new ColorWatcher(this.colorBindings.GetGroup3Color,this.ChangeColor);
+                break;
+            default:
+                Debug.Log("MiniController is Awake but has no group.");
+                break;
+        }
+        this.agent.SetDestination(new Vector3(Random.Range(-20f, 20f), this.gameObject.transform.position.y, Random.Range(-20f, 20f)));
+        
+        
+    }
+
+    void Update()
+    {
+        if (this.currLife > this.existenceTime)
+        {
+            this.publisherManager.UnsubscribeFromGroup(groupID, OnMoveMessage);
+            Destroy(this.gameObject);
+        }
+        else{
+            this.currLife += Time.deltaTime;
+        }
+        if (TimeSinceChecked > throttle)
+        {
+            watcher.Watch();
+            TimeSinceChecked = 0.0f;
+        }
+        else
+        {
+            TimeSinceChecked += Time.deltaTime;
+        }
+    }
+
+    /// <summary>
+    /// Updates the color of the object.
+    /// </summary>
+    /// <param name="color">The Renderer's material property will be updated
+    /// with this color parameter.</param>
+    private void ChangeColor(Color color)
+    {
+        foreach (Transform child in transform)
+        {
+            child.GetComponent<Renderer>().material.SetColor("MainColor", color);
+        }
+    }
+
+    private void RandomizeBody()
+    {
+        var randomScale = Random.Range(0.1f, 1.0f);
+        this.gameObject.transform.localScale *= randomScale;
+    }
+
+    public void OnMoveMessage(Vector3 destination)
+    {
+        this.agent.SetDestination(destination);
+    }
+}

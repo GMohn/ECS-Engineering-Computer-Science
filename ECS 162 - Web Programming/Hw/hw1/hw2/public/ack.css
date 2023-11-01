@@ -1,0 +1,54 @@
+@import url(https://fonts.googleapis.com/css2?family=Boogaloo&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Inter);
+
+html {
+  font-family: Boogaloo, sans-serif;
+}
+
+button {
+  font-size: 12px;
+  color: white;
+  font-family: Inter, sans-serif;
+  background-color: rgba(238, 29,82,.9);
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right:20px;
+  margin-top: 30px;
+}
+
+.successtext {
+  font-size: 36px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+#container {
+  height: 65vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#continue {
+  margin-top: 40px;
+}
+
+div#firstline {
+  display: flex;
+  flex-direction: row;
+}
+
+span#videoname {
+  color: rgba(238, 29,82,.9);
+}
+
+#title {
+  font-size: 48px; 
+  display: flex;
+  justify-content: center;
+}
